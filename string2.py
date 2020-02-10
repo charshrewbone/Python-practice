@@ -39,7 +39,7 @@
 #     return s.replace(s[s.index('not'):s.index('bad') + 3], 'good')
 #   else:
 #     return s
-# This works but is really, really ugly...
+# This works but is really, really ugly... Maybe do something with ****?
 
 # # F. front_back
 # # Consider dividing a string into two halves.
@@ -49,9 +49,12 @@
 # # Given 2 strings, a and b, return a string of the form
 # #  a-front + b-front + a-back + b-back
 def front_back(a, b):
-  return (a[:round(int(len(a))/2)], b[:round(int(len(b))/2)]), (a[round(int(len(a)))/2:], b[round(int(len(b)))/2:])
+  # def split_a_b()
+  import math
+  split_a = math.ceil((len(a)/2))
+  split_b = math.ceil((len(b)/2))
+  return a[:split_a] + b[:split_b] + a[split_a:] + b[split_b:]
   
-
 
 # Simple provided test() function used in main() to print
 # what each function returns vs. what it's supposed to return.
@@ -60,7 +63,7 @@ def test(got, expected):
     prefix = ' OK '
   else:
     prefix = ' X '
-  print (("got: %s expected: %s") % (repr(got), repr(expected)))
+  print (("%s got: %s expected: %s") % (prefix, repr(got), repr(expected)))
 
 
 # main() calls the above functions with interesting inputs,
